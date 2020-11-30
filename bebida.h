@@ -1,3 +1,8 @@
+#ifndef BEBIDA_H
+#define BEBIDA_H
+
+
+
 #include <iostream>
 using namespace std;
 
@@ -23,3 +28,6 @@ Bebida::Bebida(string ag, string cerv, string ref, string ju, string caf){
 }
 
 void Bebida::get_bebida(){}
+
+
+#endif
