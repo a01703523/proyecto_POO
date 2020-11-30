@@ -2,6 +2,7 @@
 #define GASTRONOMIA_H
 
 #include <iostream>
+//#include "bebida.h"
 using namespace std;
 
 
@@ -11,11 +12,12 @@ class Gastronomia{
 		float precioPorcion;
 			
 	public:
-		Gastronomia(int,float); //costructor
+		Gastronomia(int,float); //constructor
 
 		
 		int set_porcion();
-		float calcularPrecio(porcion,bebida);
+		float calcularPrecio(precioPorcion,/*bebida*/);
+		
 };
 
 //constructor
@@ -27,12 +29,14 @@ Gastronomia::Gastronomia(int por, float pP){
 //setter
 int Gastronomia::set_porcion(){
 	cout<<"Ingrese numero de porciones"<<endl;
-	cin>>porcion<<endl;
+	cin>>porcion;
 	return porcion;
 }
 
 //metodo 2
-float Gastronomia::calcularPrecio(porcion,bebida){
+float Gastronomia::calcularPrecio(porcion,/*bebida*/){
+	precioPorcion=precioPorcion*porcion;
+	return precioPorcion;
 	//aqui va comosicion
 }
 
@@ -46,8 +50,10 @@ class Mexicana : public Gastronomia{
 		//constructor
 		Mexicana(int,float,bool,string,string,string);
 	
+		void ponerChile();
+		void quitarChile();
 		bool calcularPicor(pica);
-		string set_verdura();
+		void set_verdura();
 		void pedirTaco();
 		void pedirMollete();
 };
@@ -64,15 +70,22 @@ Mexicana::Mexicana(int por, float pP, bool pic, string verd, string tac, string 
 }
 
 
+void ponerPicor(){
+	pica = true;
+}
+	
+void quitarPicor(){
+	pica = false;
+}
+
 //metodo mex 1
 bool Mexicana::calcularPicor(pica){
 }
 
 //metodo mex 2
-string Mexicana::set_verdura(){
+void Mexicana::set_verdura(){
 	cout<<"Ingrese verdura favorita"<<endl;
-	cin>>verdura<<endl;
-	return verdura;
+	cin>>verdura;
 }
 
 //metodo mex 3
@@ -146,8 +159,10 @@ Alemana::Alemana(int por, float pP, string salch, string pn, string curr){
 //metodo 1 al
 bool Alemana::agregarCurry(){
 	cout<<"Quiere Curry? (si/no)"<<endl;
-	cin>>curry<endl;
+	cin>>curry;
 	if (curry == si){
+		
+		
 		return true;
 	}
 	else{
@@ -159,7 +174,7 @@ bool Alemana::agregarCurry(){
 //metodo 2 al
 void Alemana::set_tiposalchicha(){
 	cout<<"Ingrese salchicha favorita"<<endl;
-	cin>>salchicha<<endl;
+	cin>>salchicha;
 }
 
 
